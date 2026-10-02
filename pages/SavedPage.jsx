@@ -37,7 +37,22 @@ const SavedPage = () => {
         <p className="mt-10 text-center text-gray-500">Loading...</p>
       ) : savedHostels.length === 0 ? (
         <div className="mt-16 text-center">
-          <p className="text-4xl">♡</p>
+          <span className="inline-block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="70px"
+              height="70px"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M19 5L18.0864 5.91358M5 19L8.21252 15.7875M18.0864 5.91358C16.3142 4.5616 13.7913 4.69173 12.1544 6.42726L12 6.59097L11.8456 6.42726C9.86801 4.33053 6.59738 4.57698 4.91934 6.94915C3.42999 9.05459 3.78668 12.0335 5.725 13.6776L8.21252 15.7875M18.0864 5.91358L8.21252 15.7875M9.64206 17L12 19L18.275 13.6776C19.9081 12.2924 20.4185 9.95956 19.6479 8"
+                stroke="#464455"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
           <p className="mt-3 text-lg font-semibold text-gray-900 font-jakarta">
             Nothing saved yet
           </p>
