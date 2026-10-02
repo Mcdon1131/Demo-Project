@@ -26,7 +26,9 @@ const SavedPage = () => {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-900 font-poppins">Saved hostels</h1>
+      <h1 className="text-3xl font-bold text-gray-900 font-poppins">
+        Saved hostels
+      </h1>
       <p className="mt-1 text-gray-500 font-poppins text-sm">
         Places you're interested in, all in one spot.
       </p>
