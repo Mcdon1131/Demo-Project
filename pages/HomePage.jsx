@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HostelListings from "../src/components/HostelListings";
 import HostelFilters from "../src/components/HostelFilters";
 import { API_URL } from "../src/config";
+import Loading from "../src/components/Loading";
 
 const HomePage = () => {
   const [hostels, setHostels] = useState([]);
@@ -34,7 +35,7 @@ const HomePage = () => {
     setSelectedFacilities((prev) =>
       prev.includes(facility)
         ? prev.filter((f) => f !== facility)
-        : [...prev, facility]
+        : [...prev, facility],
     );
   };
 
@@ -53,10 +54,12 @@ const HomePage = () => {
     const matchesRoomType = roomType === "All" || hostel.roomType === roomType;
     const matchesPrice = maxPrice === "" || hostel.price <= Number(maxPrice);
     const matchesFacilities = selectedFacilities.every((f) =>
-      hostel.facilities.includes(f)
+      hostel.facilities.includes(f),
     );
 
-    return matchesSearch && matchesRoomType && matchesPrice && matchesFacilities;
+    return (
+      matchesSearch && matchesRoomType && matchesPrice && matchesFacilities
+    );
   });
 
   return (
@@ -82,13 +85,22 @@ const HomePage = () => {
         />
       </div>
 
-      {loading && <p className="mt-10 text-center text-gray-500 font-poppins">Loading hostels...</p>}
-      {error && <p className="mt-10 text-center font-poppins font-semibold text-red-600">{error}</p>}
+      {loading && (
+        <p className="mt-10 relative text-center text-gray-500 font-poppins">
+          <Loading />
+        </p>
+      )}
+      {error && (
+        <p className="mt-10 text-center font-poppins font-semibold text-red-600">
+          {error}
+        </p>
+      )}
 
       {!loading && !error && (
         <>
           <p className="mb-4 mt-6 text-sm text-gray-500 font-poppins">
-            {filteredHostels.length} hostel{filteredHostels.length !== 1 && "s"} found
+            {filteredHostels.length} hostel{filteredHostels.length !== 1 && "s"}{" "}
+            found
           </p>
           <HostelListings hostels={filteredHostels} />
         </>

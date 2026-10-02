@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import HostelListings from "../src/components/HostelListings";
 import { API_URL } from "../src/config";
 import { getSavedIds } from "../src/utils/saved";
+import Loading from "../src/components/Loading";
 
 const SavedPage = () => {
   const [savedHostels, setSavedHostels] = useState([]);
@@ -34,7 +35,7 @@ const SavedPage = () => {
       </p>
 
       {loading ? (
-        <p className="mt-10 text-center text-gray-500">Loading...</p>
+        <Loading />
       ) : savedHostels.length === 0 ? (
         <div className="mt-16 text-center">
           <span className="inline-block">
