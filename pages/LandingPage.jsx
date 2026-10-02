@@ -75,7 +75,7 @@ const LandingPage = () => {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.7 }}
-            className="mx-auto font-poppins mt-5 max-w-xl text-md text-white/80"
+            className="mx-auto max-sm:text-sm font-poppins mt-5 max-w-xl text-md text-white/80"
           >
             Stop chasing agents across WhatsApp groups. Browse hostels near your
             campus, compare rent and facilities, then reach the agent directly.
@@ -145,8 +145,8 @@ const LandingPage = () => {
       {/* Featured */}
       {featured.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 pb-16">
-          <div className="flex items-end justify-between">
-            <h2 className="text-3xl font-bold font-poppins text-gray-900">
+          <div className="flex items-center justify-between">
+            <h2 className="text-3xl max-sm:text-2xl font-bold font-poppins text-gray-900">
               Featured hostels
             </h2>
             <Link
