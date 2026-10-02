@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../src/config";
 import { getSavedIds, toggleSavedId } from "../src/utils/saved";
+import Loading from "../src/components/Loading";
 
 const HostelPage = () => {
   const { id } = useParams();
@@ -33,7 +34,7 @@ const HostelPage = () => {
   };
 
   if (loading) {
-    return <p className="py-20 text-center text-gray-500">Loading...</p>;
+    return <Loading />;
   }
 
   if (!hostel) {
@@ -279,7 +280,10 @@ const HostelPage = () => {
             <p className="text-sm text-gray-500 font-poppins">Rent</p>
             <p className="text-3xl font-extrabold text-[rgb(69,60,141)]">
               ₦{hostel.price.toLocaleString()}
-              <span className="text-xs font-normal text-gray-500 font-poppins "> / year</span>
+              <span className="text-xs font-normal text-gray-500 font-poppins ">
+                {" "}
+                / year
+              </span>
             </p>
 
             {hostel.agentPhone && (
